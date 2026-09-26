@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aryan Saxena</title>
+  <meta name="description" content="Aryan Saxena, final-year CS student at VIT Vellore. I build AI agents and teach computers to see hands. This site works with hand gestures." />
+  <meta property="og:title" content="Aryan Saxena" />
+  <meta property="og:description" content="I build AI agents and teach computers to see hands. Try controlling this site with yours." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23ff5b24'/><circle cx='16' cy='24' r='2.4' fill='white'/><circle cx='10' cy='12' r='2.4' fill='white'/><circle cx='16' cy='8' r='2.4' fill='white'/><circle cx='22' cy='11' r='2.4' fill='white'/><path d='M16 24L10 12M16 24L16 8M16 24L22 11' stroke='white' stroke-width='1.6'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=DM+Mono:wght@400;500&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- if you like puzzles: ZmxhZ3toMXIzXzRyeTRuXzIwMjd9 -->
+
+  <header class="topbar">
+    <a href="#top" class="brand">Aryan Saxena</a>
+    <nav class="topnav">
+      <a href="#work">Work</a>
+      <a href="#toolbox">Toolbox</a>
+      <a href="#path">Path</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="gesture-toggle" id="gesture-toggle" aria-pressed="false">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 11V6a2 2 0 0 0-4 0v5M14 10V4a2 2 0 0 0-4 0v6M10 10.5V6a2 2 0 0 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg>
+      <span class="gt-label">Gesture control</span>
+      <span class="gt-dot"></span>
+    </button>
+  </header>
+
+  <main id="top">
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <canvas id="hero-canvas" aria-hidden="true"></canvas>
+      <div class="hero-copy">
+        <p class="kicker">Final-year CSE · VIT Vellore · open to 2027 roles</p>
+        <h1>
+          Hi, I'm Aryan.<br />
+          I build <span class="u-orange">AI agents</span><br />
+          and teach computers<br />
+          to <span class="u-blue">see hands</span>.
+        </h1>
+        <div class="hero-actions">
+          <button class="btn btn-ink" id="hero-gesture">
+            Control this site with your hand
+            <span class="btn-sub">Uses your webcam. Nothing leaves your browser.</span>
+          </button>
+          <a class="btn btn-line" href="#work">Or just scroll ↓</a>
+        </div>
+      </div>
+      <p class="hero-hint" id="hero-hint">That hand follows your cursor. Hold the mouse button down to pinch.</p>
+    </section>
+
+    <!-- ============ INTRO STRIP ============ -->
+    <section class="intro-strip wrap">
+      <figure class="photo">
+        <img src="assets/photo.jpg" alt="Aryan Saxena" onerror="this.parentElement.classList.add('no-photo'); this.remove();" />
+        <span class="monogram" aria-hidden="true">AS</span>
+      </figure>
+      <div class="intro-words">
+        <p class="big">
+          I like software that <em>does something</em> once you ask it to. This summer I built AI agents as an
+          engineering intern at <strong>Pratham Software</strong>. Before that I got my laptop to follow my hand
+          around through a webcam.
+        </p>
+        <p>
+          I'm from Rajasthan, doing a B.Tech in CSE with a Blockchain specialisation at VIT Vellore (7.95 CGPA).
+          I mostly write Python, with some Java, and I'm happiest where AI meets backend work: APIs, state,
+          and systems that have to behave every time.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ WORK ============ -->
+    <section id="work" class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">01</span>
+        <h2>Things I've built</h2>
+        <p>Each one has a small demo you can play with right here.</p>
+      </div>
+
+      <!-- ===== IRA ===== -->
+      <article class="project" id="p-ira">
+        <div class="project-top">
+          <div>
+            <p class="p-tag">Multi-agent system · 2026</p>
+            <h3>IRA</h3>
+            <p class="p-lede">An assistant that handles your Gmail, Drive and Calendar from a single sentence.</p>
+          </div>
+          <div class="p-meta">
+            <span>LangGraph</span><span>LangChain</span><span>MCP</span><span>RAG</span><span>FastAPI</span><span>Google APIs</span>
+            <a href="https://github.com/aryansaxena04/IRA-multi-agent-MCP-orchestrator-system" target="_blank" rel="noopener" class="p-code">View code ↗</a>
+          </div>
+        </div>
+
+        <div class="p-grid">
+          <div class="p-text">
+            <p>An orchestrator built on LangGraph reads the request, breaks it into steps, and hands each step to
+              a Gmail, Drive or Calendar agent. The agents act through MCP tools served from a FastAPI backend,
+              and a retrieval layer helps them work out things like <em>which</em> deck you meant.</p>
+            <p>Most of the real work was reliability: clear tool descriptions, structured outputs, and checking
+              each result before moving on to the next step.</p>
+          </div>
+
+          <div class="demo demo-ira">
+            <div class="demo-label"><span>Try it</span> simulated walkthrough</div>
+            <p class="demo-q">Pick a request:</p>
+            <div class="ira-prompts" id="ira-prompts"></div>
+
+            <svg class="ira-flow" viewBox="0 0 520 190" aria-hidden="true">
+              <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0L10,5L0,10z" fill="currentColor"/></marker></defs>
+              <g class="fl"><path d="M92 95H128" marker-end="url(#ah)"/><path d="M242 80C270 80 270 30 296 30" marker-end="url(#ah)"/><path d="M242 95H296" marker-end="url(#ah)"/><path d="M242 110C270 110 270 160 296 160" marker-end="url(#ah)"/><path d="M410 30C440 30 440 85 452 88" marker-end="url(#ah)"/><path d="M410 95H452" marker-end="url(#ah)"/><path d="M410 160C440 160 440 105 452 102" marker-end="url(#ah)"/></g>
+              <g class="fn" data-n="you"><rect x="6" y="72" width="86" height="46" rx="10"/><text x="49" y="100">you</text></g>
+              <g class="fn" data-n="orch"><rect x="132" y="66" width="110" height="58" rx="10"/><text x="187" y="92">orchestrator</text><text x="187" y="109" class="sm">LangGraph</text></g>
+              <g class="fn" data-n="gmail"><rect x="300" y="8" width="110" height="44" rx="10"/><text x="355" y="35">Gmail</text></g>
+              <g class="fn" data-n="drive"><rect x="300" y="73" width="110" height="44" rx="10"/><text x="355" y="100">Drive</text></g>
+              <g class="fn" data-n="cal"><rect x="300" y="138" width="110" height="44" rx="10"/><text x="355" y="165">Calendar</text></g>
+              <g class="fn" data-n="mcp"><rect x="456" y="66" width="58" height="58" rx="10"/><text x="485" y="99">MCP</text></g>
+            </svg>
+
+            <ol class="ira-log" id="ira-log"></ol>
+            <div class="ira-results" id="ira-results"></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== Gesture OS ===== -->
+      <article class="project" id="p-gesture">
+        <div class="project-top">
+          <div>
+            <p class="p-tag">Computer vision · 2026</p>
+            <h3>Gesture OS</h3>
+            <p class="p-lede">Control your computer with your hand: no mouse, no touch.</p>
+          </div>
+          <div class="p-meta">
+            <span>Python</span><span>OpenCV</span><span>MediaPipe</span><span>PyAutoGUI</span>
+            <a href="https://github.com/aryansaxena04/gesture-OS" target="_blank" rel="noopener" class="p-code">View code ↗</a>
+          </div>
+        </div>
+
+        <div class="p-grid">
+          <div class="p-text">
+            <p>MediaPipe finds 21 landmarks on your hand in every webcam frame. Gesture OS works out which fingers
+              are up and how far apart they are, turns that into a gesture, and fires the matching action through
+              PyAutoGUI: moving the mouse, clicking, scrolling, changing the volume, taking screenshots and
+              triggering app shortcuts.</p>
+            <p>The hard part is making it <em>feel</em> right. A cursor that lags or jitters is worse than no cursor,
+              so most of the tuning went into low-latency, stable detection.</p>
+          </div>
+
+          <div class="demo demo-gesture">
+            <div class="demo-label"><span>Try it</span> live, in your browser</div>
+            <div class="gesture-stage">
+              <canvas id="stage-canvas" width="480" height="360"></canvas>
+              <div class="stage-off" id="stage-off">
+                <p>This whole website is wired up to the same idea.</p>
+                <button class="btn btn-orange" id="stage-start">Turn on gesture control</button>
+                <p class="fine">Webcam needed · processed locally with MediaPipe</p>
+              </div>
+            </div>
+            <ul class="gesture-legend">
+              <li><b>Point</b> to move the cursor</li>
+              <li><b>Pinch</b> to click</li>
+              <li><b>Pinch + move</b> to scroll or drag</li>
+              <li><b>Wave</b> to say hi</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== Resume Analyzer ===== -->
+      <article class="project" id="p-resume">
+        <div class="project-top">
+          <div>
+            <p class="p-tag">RAG · NLP · 2025–26</p>
+            <h3>Resume Analyzer</h3>
+            <p class="p-lede">An ATS-style checker that tells you <em>why</em> you got your score.</p>
+          </div>
+          <div class="p-meta">
+            <span>Python</span><span>LangChain</span><span>RAG</span><span>Gemini API</span>
+            <a href="https://github.com/aryansaxena04" target="_blank" rel="noopener" class="p-code">GitHub ↗</a>
+          </div>
+        </div>
+
+        <div class="p-grid">
+          <div class="p-text">
+            <p>Built during placement season to answer the question everyone in my batch was asking: how does my
+              resume actually compare to <em>this</em> job? It embeds the resume and the job description, matches
+              them by meaning with RAG, and produces an ATS-style score, a list of skill gaps, and resume and
+              interview suggestions from Gemini.</p>
+            <p>The demo on the right is a lighter, keyword-based version that runs in your browser, pointed at
+              my own resume.</p>
+          </div>
+
+          <div class="demo demo-resume">
+            <div class="demo-label"><span>Try it</span> match my resume to your job</div>
+            <div class="jd-presets" id="jd-presets"></div>
+            <textarea id="jd-input" rows="5" placeholder="…or paste a job description here"></textarea>
+            <div class="match" id="match">
+              <div class="ring"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" class="ring-bg"/><circle cx="50" cy="50" r="42" class="ring-fg" id="ring-fg"/></svg><span id="match-pct">–</span></div>
+              <div class="match-body">
+                <p class="match-title" id="match-title">Pick a role or paste a JD.</p>
+                <div class="chips-row" id="match-have"></div>
+                <div class="chips-row gaps" id="match-gap"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== smaller ===== -->
+      <div class="smaller">
+        <h3 class="smaller-title">Smaller things</h3>
+        <div class="smaller-grid" id="smaller-grid"></div>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section class="wrap exp">
+      <div class="sec-head">
+        <span class="sec-num">02</span>
+        <h2>Where I've worked</h2>
+      </div>
+      <div class="exp-card">
+        <div class="exp-when">May – Jul 2026<br /><span>Jaipur</span></div>
+        <div>
+          <h3>AI Engineering Intern · Pratham Software (PSI)</h3>
+          <p>I worked on LLM-powered agent workflows that automate multi-step user requests and operational tasks.
+            My part was mostly the backend: modules for context retrieval, tool selection and structured workflow
+            execution, connected to APIs and external integrations.</p>
+          <p>I built and tested agent prototypes that turn natural-language input into actions, made them more
+            reliable by reworking prompts, workflow logic and tool-call handling, and wrote up the architecture
+            and design decisions for the team.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TOOLBOX ============ -->
+    <section id="toolbox" class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">03</span>
+        <h2>My toolbox</h2>
+        <p>Go ahead and make a mess: drag them around, by mouse or with a pinch.</p>
+      </div>
+      <div class="toolbox" id="toolbox-area"></div>
+      <div class="toolbox-legend" id="toolbox-legend"></div>
+    </section>
+
+    <!-- ============ PATH ============ -->
+    <section id="path" class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">04</span>
+        <h2>How I got here</h2>
+      </div>
+      <div class="path">
+        <div class="path-line"><span id="path-fill"></span></div>
+        <ol id="path-list"></ol>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section id="contact" class="contact">
+      <div class="wrap">
+        <p class="kicker">Hiring for 2027? Want to talk about any of this?</p>
+        <a class="contact-big" href="mailto:aryansaxena093@gmail.com">Say hi <span class="wave-hand" aria-hidden="true">👋</span></a>
+        <p class="contact-mail">aryansaxena093@gmail.com</p>
+        <div class="contact-links">
+          <a href="https://www.linkedin.com/in/aryan-saxena-a3537628b/" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a href="https://github.com/aryansaxena04" target="_blank" rel="noopener">GitHub ↗</a>
+          <a href="assets/Aryan_Saxena_Resume.pdf" target="_blank" rel="noopener">Résumé (PDF) ↗</a>
+        </div>
+        <p class="contact-note">With gesture control on, you can also just wave at the screen.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <span>© 2026 Aryan Saxena</span>
+    <span>There's a puzzle in the page source. Email me the answer.</span>
+  </footer>
+
+  <!-- ============ GESTURE HUD ============ -->
+  <div class="hud" id="hud" hidden>
+    <div class="hud-cam">
+      <video id="cam" playsinline muted></video>
+      <canvas id="hud-canvas" width="240" height="180"></canvas>
+      <span class="hud-gesture" id="hud-gesture">looking for a hand…</span>
+    </div>
+    <div class="hud-foot">
+      <span>point · pinch · pinch-drag · wave</span>
+      <button id="hud-stop">Turn off</button>
+    </div>
+  </div>
+  <div class="hand-cursor" id="hand-cursor" hidden><span></span></div>
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
