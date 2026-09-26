@@ -4,14 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aryan Saxena</title>
-  <meta name="description" content="Aryan Saxena, final-year CS student at VIT Vellore. I build AI agents and teach computers to see hands. This site works with hand gestures." />
+  <meta name="description" content="Aryan Saxena, final-year CS student at VIT Vellore. I build AI agents and computer-vision systems. This site can be controlled with hand gestures." />
   <meta property="og:title" content="Aryan Saxena" />
-  <meta property="og:description" content="I build AI agents and teach computers to see hands. Try controlling this site with yours." />
+  <meta property="og:description" content="I build AI agents and computer-vision systems. Try controlling this site with your hand." />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23ff5b24'/><circle cx='16' cy='24' r='2.4' fill='white'/><circle cx='10' cy='12' r='2.4' fill='white'/><circle cx='16' cy='8' r='2.4' fill='white'/><circle cx='22' cy='11' r='2.4' fill='white'/><path d='M16 24L10 12M16 24L16 8M16 24L22 11' stroke='white' stroke-width='1.6'/></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=DM+Mono:wght@400;500&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=DM+Mono:wght@400;500&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <script>
+    try { const t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
 </head>
 <body>
   <!-- if you like puzzles: ZmxhZ3toMXIzXzRyeTRuXzIwMjd9 -->
@@ -24,6 +27,11 @@
       <a href="#path">Path</a>
       <a href="#contact">Contact</a>
     </nav>
+    <button class="theme-switch" id="theme-toggle" role="switch" aria-checked="false" aria-label="Dark mode">
+      <svg class="ts-icon ts-sun" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="ts-icon ts-moon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      <span class="ts-knob"></span>
+    </button>
     <button class="gesture-toggle" id="gesture-toggle" aria-pressed="false">
       <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 11V6a2 2 0 0 0-4 0v5M14 10V4a2 2 0 0 0-4 0v6M10 10.5V6a2 2 0 0 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg>
       <span class="gt-label">Gesture control</span>
@@ -40,8 +48,7 @@
         <h1>
           Hi, I'm Aryan.<br />
           I build <span class="u-orange">AI agents</span><br />
-          and teach computers<br />
-          to <span class="u-blue">see hands</span>.
+          and <span class="u-blue">vision systems</span>.
         </h1>
         <div class="hero-actions">
           <button class="btn btn-ink" id="hero-gesture">
@@ -165,7 +172,7 @@
               <li><b>Point</b> to move the cursor</li>
               <li><b>Pinch</b> to click</li>
               <li><b>Pinch + move</b> to scroll or drag</li>
-              <li><b>Wave</b> to say hi</li>
+              <li><b>Wave</b> to say hello</li>
             </ul>
           </div>
         </div>
@@ -264,15 +271,14 @@
     <!-- ============ CONTACT ============ -->
     <section id="contact" class="contact">
       <div class="wrap">
-        <p class="kicker">Hiring for 2027? Want to talk about any of this?</p>
-        <a class="contact-big" href="mailto:aryansaxena093@gmail.com">Say hi <span class="wave-hand" aria-hidden="true">👋</span></a>
+        <p class="kicker">Open to SDE and AI engineering roles from 2027</p>
+        <a class="contact-big" href="mailto:aryansaxena093@gmail.com">Let's work together<span class="arrow" aria-hidden="true">→</span></a>
         <p class="contact-mail">aryansaxena093@gmail.com</p>
         <div class="contact-links">
           <a href="https://www.linkedin.com/in/aryan-saxena-a3537628b/" target="_blank" rel="noopener">LinkedIn ↗</a>
           <a href="https://github.com/aryansaxena04" target="_blank" rel="noopener">GitHub ↗</a>
           <a href="assets/Aryan_Saxena_Resume.pdf" target="_blank" rel="noopener">Résumé (PDF) ↗</a>
         </div>
-        <p class="contact-note">With gesture control on, you can also just wave at the screen.</p>
       </div>
     </section>
   </main>

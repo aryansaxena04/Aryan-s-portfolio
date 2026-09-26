@@ -17,6 +17,26 @@ function toast(msg, ms = 2600) {
 }
 
 /* ==========================================================
+   THEME: light / dark (starts from the system setting)
+   ========================================================== */
+function currentTheme() {
+  return document.documentElement.dataset.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+}
+const themeSwitch = $('#theme-toggle');
+const syncSwitch = () => themeSwitch.setAttribute('aria-checked', String(currentTheme() === 'dark'));
+syncSwitch();
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change', syncSwitch);
+themeSwitch.addEventListener('click', () => {
+  const root = document.documentElement;
+  const next = currentTheme() === 'dark' ? 'light' : 'dark';
+  root.classList.add('theme-anim');
+  root.dataset.theme = next;
+  syncSwitch();
+  try { localStorage.setItem('theme', next); } catch (e) {}
+  setTimeout(() => root.classList.remove('theme-anim'), 400);
+});
+
+/* ==========================================================
    HAND MODEL: the 21 MediaPipe landmarks
    ========================================================== */
 const BASE = [
@@ -310,9 +330,7 @@ function detectWave(lm) {
   }
   if (flips >= 3) {
     gesture.lastWave = now;
-    toast('👋 Hey! Thanks for stopping by. Say hi back: aryansaxena093@gmail.com', 4000);
-    const wh = $('.wave-hand');
-    wh.classList.remove('waving'); void wh.offsetWidth; wh.classList.add('waving');
+    toast('Hello, and thanks for visiting. You can reach me at aryansaxena093@gmail.com', 4000);
   }
 }
 
